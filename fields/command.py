@@ -10,6 +10,6 @@ class FieldsCommand(BaseCommand):
     )
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
-        fields = self.get_arg('col', all=True)
+        fields = self.get_iter('col')
 
         return df[[field.value for field in fields]]
