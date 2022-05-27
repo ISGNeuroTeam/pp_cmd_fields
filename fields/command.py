@@ -6,7 +6,7 @@ from otlang.sdk.syntax import Positional, OTLType
 class FieldsCommand(BaseCommand):
     """Fields command with sequestered logics. To be improved."""
 
-    syntax = Syntax([Positional("field", otl_type=OTLType.TEXT, inf=True)], use_timewindow=False)
+    syntax = Syntax([Positional("field", otl_type=OTLType.TEXT, inf=True)])
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         fields = self.get_iter('col')
