@@ -10,4 +10,8 @@ class FieldsCommand(BaseCommand):
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         fields = self.get_iter('fields')
+
+        # dataframe can be changed, so if columns disappears no need for exception
+        fields = filter(lambda x: x.value in df.columns, fields)
+
         return df[[field.value for field in fields]]
